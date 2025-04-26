@@ -3,6 +3,7 @@ import { HeaderContainer } from "./layout";
 import NavLink from "./components/NavLink";
 import Logo from "./components/Logo";
 import { NAVIGATION_ITEMS } from "./constants";
+import AuthContainer from "./components/Auth/AuthContainer";
 
 const Header = () => {
   return (
@@ -14,6 +15,7 @@ const Header = () => {
             {item.label}
           </NavLink>
         ))}
+        <AuthContainer />
       </div>
     </HeaderContainer>
   );

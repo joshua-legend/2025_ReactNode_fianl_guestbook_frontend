@@ -1,5 +1,3 @@
-"use client";
-
 import Heading from "@/components/Common/bases/Typography/Heading";
 import RegisterForm from "@/components/RegisterForm";
 

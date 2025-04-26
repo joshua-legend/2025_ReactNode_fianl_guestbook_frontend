@@ -1,3 +1,5 @@
+"use client";
+
 import Content from "./components/content";
 import Submit from "./components/submit";
 import Title from "./components/title";
