@@ -1,5 +1,5 @@
 import GuestbookCard from "@/components/Guestbook";
-import Heading from "@/components/Common/bases/Typography/Heading";
+import Heading from "@/components/Common/Bases/Typography/Heading";
 
 export default function Home() {
   return (

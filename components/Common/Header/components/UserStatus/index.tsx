@@ -1,4 +1,4 @@
-import Button from "@/components/Common/bases/Button";
+import DangerButton from "@/components/Common/Bases/Buttons/DangerButton";
 
 interface UserStatusProps {
   name: string;
@@ -9,9 +9,7 @@ export default function UserStatus({ name, onLogout }: UserStatusProps) {
   return (
     <div className="flex items-center space-x-2">
       <span className="text-gray-700">{name}님 환영합니다! </span>
-      <Button variant="danger" onClick={onLogout}>
-        로그아웃
-      </Button>
+      <DangerButton onClick={onLogout}>로그아웃</DangerButton>
     </div>
   );
 }
