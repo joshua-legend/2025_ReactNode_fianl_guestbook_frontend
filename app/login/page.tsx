@@ -3,11 +3,18 @@
 import Heading from "@/components/Common/Bases/Typography/Heading";
 import LoginForm from "@/components/LoginForm";
 import { useAuthStore } from "@/store/auth";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const LoginPage = () => {
+  const router = useRouter();
   const { isAuthenticated } = useAuthStore();
-  if (isAuthenticated) redirect("/");
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push("/");
+    }
+  }, [isAuthenticated, router]);
 
   return (
     <div className="max-w-2xl mx-auto text-center">

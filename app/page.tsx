@@ -1,8 +1,8 @@
 import GuestbookCard from "@/components/Guestbook";
 import Heading from "@/components/Common/Bases/Typography/Heading";
-import { getGuestbook } from "@/apis/guestbooks/guestbookAPI";
+import { getGuestbooks } from "@/apis/guestbooks/guestbookAPI";
 export default async function Home() {
-  const data = await getGuestbook();
+  const data = await getGuestbooks();
   if (!data?.success) {
     return <div>데이터를 불러오는데 실패했습니다.</div>;
   }
@@ -12,7 +12,7 @@ export default async function Home() {
   return (
     <>
       <Heading>방명록</Heading>
-      {/* <GuestbookCard guestbook={data.data?.data || []} /> */}
+      <GuestbookCard guestbook={data?.data || []} />
     </>
   );
 }

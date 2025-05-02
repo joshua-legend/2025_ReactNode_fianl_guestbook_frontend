@@ -1,5 +1,5 @@
 "use client";
-import { write } from "@/utils/apis";
+import { postGuestbook } from "@/apis/guestbooks/guestbookAPI";
 import { useRouter } from "next/navigation";
 
 interface SubmitProps {
@@ -13,12 +13,15 @@ const Submit = ({ formData }: SubmitProps) => {
   const router = useRouter();
   const handleSubmit = async () => {
     try {
-      await write(formData.title, formData.content);
-      router.push("/");
+      const response = await postGuestbook(formData.title, formData.content);
+      console.log(response);
+      if (response?.data?.success) {
+        router.push("/");
+      }
     } catch (err) {
       console.error("API Error:", err);
-      alert("로그인 기간이 만료되었습니다. 다시 로그인 해주세요.");
-      router.push("/login");
+      // alert("로그인 기간이 만료되었습니다. 다시 로그인 해주세요.");
+      // router.push("/login");
     }
   };
 

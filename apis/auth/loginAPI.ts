@@ -1,4 +1,4 @@
-import { api } from "../common/apiClient";
+import api from "../common/apiClient";
 import { API_ENDPOINTS, ApiResponse, ErrorResponse } from "../common/apiEndpoints";
 import { handleAxiosError } from "../common/networkError";
 
