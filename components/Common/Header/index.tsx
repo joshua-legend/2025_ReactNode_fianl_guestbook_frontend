@@ -5,11 +5,11 @@ import { HeaderContainer } from "./layout";
 import NavLink from "./components/NavLink";
 import Logo from "./components/Logo";
 import { NAVIGATION_ITEMS } from "./constants";
-import { useAuthStore } from "@/store/authStore";
 import UserStatus from "./components/UserStatus";
+import { useAuthStore } from "@/store/auth";
 
 const Header = () => {
-  const { isAuthenticated, username, logout } = useAuthStore();
+  const { isAuthenticated, username, setAuthOff } = useAuthStore();
   return (
     <HeaderContainer>
       <Logo />
@@ -19,7 +19,14 @@ const Header = () => {
             {item.label}
           </NavLink>
         ))}
-        {isAuthenticated ? <UserStatus name={username} onLogout={logout} /> : <NavLink href="/login">로그인</NavLink>}
+        {isAuthenticated ? (
+          <UserStatus name={username} onLogout={setAuthOff} />
+        ) : (
+          <>
+            <NavLink href="/login">로그인</NavLink>
+            <NavLink href="/signup">회원가입</NavLink>
+          </>
+        )}
       </div>
     </HeaderContainer>
   );
