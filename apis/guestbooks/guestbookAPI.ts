@@ -1,5 +1,4 @@
-import { ApiResponse, ErrorResponse } from "../common/apiEndpoints";
-import { API_ENDPOINTS } from "@/utils/apiEndpoints";
+import { API_ENDPOINTS, ApiResponse, ErrorResponse } from "../common/apiEndpoints";
 import { AxiosError } from "axios";
 import { Guestbook } from "@/components/Guestbook/types/guestbook.type";
 import api from "../common/apiClient";
@@ -18,8 +17,10 @@ export const postGuestbook = async (title: string, content: string) => {
       title,
       content,
     });
+    console.log("등록 성공", response);
     return response;
   } catch (err) {
+    console.log("등록 실패", err);
     return (err as AxiosError<ErrorResponse>).response?.data;
   }
 };

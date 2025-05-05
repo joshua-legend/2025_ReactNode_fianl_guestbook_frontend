@@ -18,9 +18,10 @@ export default function SignUpForm() {
 
   const handleSubmit = async () => {
     const data = await signup(formData.username, formData.password);
+    console.log(data);
     if (data.success) {
-      alert(data.data?.message);
-      router.push("/");
+      alert(data.message);
+      router.push("/login");
     } else {
       alert(data?.message.message);
     }

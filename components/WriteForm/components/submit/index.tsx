@@ -1,6 +1,7 @@
 "use client";
 import { postGuestbook } from "@/apis/guestbooks/guestbookAPI";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 interface SubmitProps {
   formData: {
@@ -14,20 +15,14 @@ const Submit = ({ formData }: SubmitProps) => {
   const handleSubmit = async () => {
     try {
       const response = await postGuestbook(formData.title, formData.content);
-      console.log(response);
-      if (response?.data?.success) {
-        router.push("/");
-      }
+      response?.data?.success && router.push("/");
     } catch (err) {
-      console.error("API Error:", err);
-      // alert("로그인 기간이 만료되었습니다. 다시 로그인 해주세요.");
-      // router.push("/login");
+      toast.error("등록에 실패했습니다. 다시 시도해주세요.");
     }
   };
 
   return (
     <div className="flex justify-end space-x-4">
-      <button onClick={() => console.log(formData)}>테스트</button>
       <button type="button" onClick={() => router.push("/")} className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
         취소
       </button>
