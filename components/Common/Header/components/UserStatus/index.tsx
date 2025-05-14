@@ -1,4 +1,4 @@
-import DangerButton from "@/components/Common/Bases/Buttons/DangerButton";
+import DangerButton from "@/components/Common/bases/Buttons/DangerButton";
 
 interface UserStatusProps {
   name: string;

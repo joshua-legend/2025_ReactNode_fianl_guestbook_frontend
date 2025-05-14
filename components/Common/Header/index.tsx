@@ -7,9 +7,15 @@ import Logo from "./components/Logo";
 import { NAVIGATION_ITEMS } from "./constants";
 import UserStatus from "./components/UserStatus";
 import { useAuthStore } from "@/store/auth";
+import { logout } from "@/apis/auth/logoutAPI";
 
 const Header = () => {
   const { isAuthenticated, username, setAuthOff } = useAuthStore();
+  const handleLogout = () => {
+    setAuthOff();
+    logout();
+  };
+
   return (
     <HeaderContainer>
       <Logo />
@@ -20,7 +26,7 @@ const Header = () => {
           </NavLink>
         ))}
         {isAuthenticated ? (
-          <UserStatus name={username} onLogout={setAuthOff} />
+          <UserStatus name={username} onLogout={handleLogout} />
         ) : (
           <>
             <NavLink href="/login">로그인</NavLink>

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Common/Header";
+import { ToastContainer } from "react-toastify";
+import ClientProviders from "@/components/Common/ClientProviders";
 
 export const metadata: Metadata = {
   title: "게이시판",
@@ -15,6 +17,8 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
+        <ClientProviders />
+        {/* <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick pauseOnHover draggable /> */}
         <Header />
         <main className="container mx-auto p-4">{children}</main>
       </body>

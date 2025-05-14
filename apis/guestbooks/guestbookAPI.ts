@@ -17,8 +17,10 @@ export const postGuestbook = async (title: string, content: string) => {
       title,
       content,
     });
+    console.log("등록 성공", response);
     return response;
   } catch (err) {
+    console.log("등록 실패", err);
     return (err as AxiosError<ErrorResponse>).response?.data;
   }
 };
