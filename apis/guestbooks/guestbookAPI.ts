@@ -1,5 +1,4 @@
-import { ApiResponse, ErrorResponse } from "../common/apiEndpoints";
-import { API_ENDPOINTS } from "@/utils/apiEndpoints";
+import { API_ENDPOINTS, ApiResponse, ErrorResponse } from "../common/apiEndpoints";
 import { AxiosError } from "axios";
 import { Guestbook } from "@/components/Guestbook/types/guestbook.type";
 import api from "../common/apiClient";
